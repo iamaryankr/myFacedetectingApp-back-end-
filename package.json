@@ -1,9 +1,12 @@
 {
   "name": "smartbrainapi",
+  "homepage": "http://iamaryankr.github.io/myFacedetectingApp",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +16,7 @@
     "bcrypt-nodejs": "^0.0.3",
     "cors": "^2.8.5",
     "express": "^4.19.2",
+    "gh-pages": "^6.1.1",
     "nodemon": "^3.1.3"
   }
 }

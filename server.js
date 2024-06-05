@@ -7,7 +7,13 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-
+/*
+--> res = this is working
+signin --> POST = success/fail
+register --> POST = user
+profile/:userId --> GET = user
+image --> PUT --> user
+*/
 const database = {
     users: [
         {
@@ -102,10 +108,3 @@ app.listen(3000, () => {
 
 
 
-/*
---> res = this is working
-signin --> POST = success/fail
-register --> POST = user
-profile/:userId --> GET = user
-image --> PUT --> user
-*/
