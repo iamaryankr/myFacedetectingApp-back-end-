@@ -3,17 +3,18 @@ const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors'); //to give access to browsers
 const knex = require('knex');
 
-const register = require('./controllers/register');
-const signin = require('./controllers/signin');
-const profile = require('./controllers/profile');
-const image = require('./controllers/image');
+
+import register from './controllers/register';
+import signin from './controllers/signin';
+import profile from './controllers/profile';
+import image from './controllers/image';
 
 const app = express();
 
 const db = knex({
     client: 'pg',
     connection: {
-        connectionString: process.env.DATABASE_URL || 'postgresql://myApp:1LSyZurDLdGlyj0PnheSo9HluIkPXMSE@localhost:5432/myapp_9xtr',
+        connectionString: process.env.DATABASE_URL,
         ssl: process.env.DATABASE_URL ? true : false,
         host: process.env.DATABASE_HOST,
         port: 5432,
