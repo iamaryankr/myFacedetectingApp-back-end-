@@ -13,8 +13,13 @@ const app = express();
 const db = knex({
     client: 'pg',
     connection: {
-        connectionString : process.env.DATABASE_URL,
-        ssl: {rejectUnauthorized: false}
+        connectionString: process.env.DATABASE_URL || 'postgresql://myApp:1LSyZurDLdGlyj0PnheSo9HluIkPXMSE@localhost:5432/myapp_9xtr',
+        ssl: process.env.DATABASE_URL ? true : false,
+        host: process.env.DATABASE_HOST,
+        port: 5432,
+        user: process.env.DATABASE_USER,
+        password: process.env.DATABASE_PW,
+        database: process.env.DATABASE_DB
     }
 });
 
