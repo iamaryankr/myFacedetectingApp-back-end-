@@ -1,13 +1,13 @@
-const express = require('express');
-const bcrypt = require('bcrypt-nodejs');
-const cors = require('cors'); //to give access to browsers
-const knex = require('knex');
+import express from 'express';
+import bcrypt from 'bcrypt-nodejs';
+import cors from 'cors'; //to give access to browsers
+import knex from 'knex';
 
 
-import register from './controllers/register';
-import signin from './controllers/signin';
-import profile from './controllers/profile';
-import image from './controllers/image';
+import handleRegister from './controllers/register.js';
+import handleSignin from './controllers/signin.js';
+import handleProfile from './controllers/profile.js';
+import handeImage from './controllers/image.js';
 
 const app = express();
 
@@ -24,7 +24,7 @@ const db = knex({
     }
 });
 
-module.exports = db;
+//module.exports = db;
 
 db.select('*').from('users').then(data => {
     console.log(data)

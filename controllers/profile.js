@@ -10,6 +10,4 @@ const handleProfile = (req, res, db) => {
     .catch(err => res.status(400).json('error gettin user'))
 }
 
-module.exports = {
-    handleProfile: handleProfile
-}
+export default handleProfile;

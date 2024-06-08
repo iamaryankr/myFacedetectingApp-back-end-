@@ -9,6 +9,4 @@ const handeImage = (req, res, db) => {
     .catch(err => res.status(400).json('unable to get entries'));
 }
 
-module.exports = {
-    handeImage: handeImage
-}
+export default handeImage;
