@@ -2,9 +2,9 @@
   "name": "smartbrainapi",
   "homepage": "http://iamaryankr.github.io/myFacedetectingApp",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
