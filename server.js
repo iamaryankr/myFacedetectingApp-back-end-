@@ -38,14 +38,14 @@ image --> PUT --> user
 */
 
 
-app.get('/', (req, res) => {res.send(database.users)})
+app.get('/', (req, res) => {res.send('app is working!')})
 app.post('/signin', (req, res) => {signin.handleSignin(req, res, db, bcrypt)})
 app.post('/register', (req, res) => {register.handleRegister(req, res, db, bcrypt)})
 app.get('/profile/:id', (req, res) => {profile.handleProfile(req, res, db)})
 app.put('/image', (req, res) => {image.handeImage(req, res, db)})
 
-app.listen(3000, () => {
-    console.log('app is running!');
+app.listen(process.env.PORT || 3000, () => {
+    console.log(`app is running on PORT ${process.env.PORT}`);
 })
 
 
