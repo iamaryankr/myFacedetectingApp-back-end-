@@ -14,7 +14,7 @@ const app = express();
 const db = knex({
     client: 'pg',
     connection: {
-        connectionString: process.env.DATABASE_URL || 'postgresql://PGPASSWORD=1LSyZurDLdGlyj0PnheSo9HluIkPXMSE psql -h dpg-cphjh20l6cac73a2g6hg-a.oregon-postgres.render.com -U myapp_9xtr_user myapp_9xtr',
+        connectionString: process.env.DATABASE_URL,
         ssl: process.env.DATABASE_URL ? true : false,
         host: process.env.DATABASE_HOST,
         port: 5432,
@@ -44,10 +44,10 @@ image --> PUT --> user
 
 
 app.get('/', (req, res) => {res.send('app is working!')})
-app.post('/signin', (req, res) => {signin.handleSignin(req, res, db, bcrypt)})
-app.post('/register', (req, res) => {register.handleRegister(req, res, db, bcrypt)})
-app.get('/profile/:id', (req, res) => {profile.handleProfile(req, res, db)})
-app.put('/image', (req, res) => {image.handeImage(req, res, db)})
+app.post('/signin', (req, res) => {handleSignin(req, res, db, bcrypt)})
+app.post('/register', (req, res) => {handleRegister(req, res, db, bcrypt)})
+app.get('/profile/:id', (req, res) => {handleProfile(req, res, db)})
+app.put('/image', (req, res) => {handeImage(req, res, db)})
 
 app.listen(process.env.PORT || 3000, () => {
     console.log(`app is running on PORT ${process.env.PORT}`);
