@@ -30,7 +30,7 @@ app.use(express.json());
 app.use(cors());
 
 /*
---> res = this is working
+--> res = this is working`
 signin --> POST = success/fail
 register --> POST = user
 profile/:userId --> GET = user
