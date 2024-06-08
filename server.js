@@ -13,13 +13,12 @@ const app = express();
 const db = knex({
     client: 'pg',
     connection: {
-      host: '127.0.0.1',
-      port: 5432,
-      user: 'postgres',
-      password: 'aryan',
-      database: 'smart-brain',
-    },
+        connectionString : process.env.DATABASE_URL,
+        ssl: {rejectUnauthorized: false}
+    }
 });
+
+module.exports = db;
 
 db.select('*').from('users').then(data => {
     console.log(data)
